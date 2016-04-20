@@ -17,10 +17,6 @@
 	                   <td class="infoo nameform"><?php echo $donor_single['fname']." ".$donor_single['lname']; ?></td>
 	                 </tr>
 	                 <tr>
-	                   <td class="infooN">Gender</td>
-	                   <td class="infoo"><?php echo $donor_single['sex'];?></td>
-	                 </tr>
-	                 <tr>
 	                   <td class="infooN">Age</td>
 	                   <td class="infoo"><?php echo $donor_single['age'];?></td>
 	                 </tr>
@@ -32,6 +28,11 @@
 	                	 <tr><td>
                                       <button title="&#4332;&#4304;&#4328;&#4314;&#4304;" class="donor_delete" data-id="<?php echo $this->uri->segment(2); ?>"></button>
                                       <a href="<?php echo base_url('manager/edit_donor').'/'.$this->uri->segment(2); ?>"><button title="&#4320;&#4308;&#4307;&#4304;&#4325;&#4322;&#4312;&#4320;&#4308;&#4305;&#4304;" class="donor_edit"></button></a>
+                                      <?php if($donor_single['hide']==0): ?>
+                                      	<a href="<?php echo base_url('Manager/hidedonor/'.$donor_single['id']) ?>">hide</a>
+                                  	  <?php else:?>
+										<a href="<?php echo base_url('Manager/showdonor/'.$donor_single['id']) ?>">show</a>
+                                  	  <?php endif;?>
                                 </td><td></td></tr>                
 	             	 <?php endif; ?>	                 
 	                 </table>	

@@ -182,4 +182,12 @@ $data['finduser'] = $this->Manager_model->find('personal', $this->session->userd
     $this->load->view('manager/donor');
     $this->load->view('manager/footer');  	
   }
+  public function hidedonor($id){
+    $this->Manager_model->hidedonor($id);
+    redirect('manager/donor/'.$id);
+  }
+  public function showdonor($id){
+    $this->Manager_model->showdonor($id);
+    redirect('manager/donor/'.$id);
+  }  
 }

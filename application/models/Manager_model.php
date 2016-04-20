@@ -386,6 +386,9 @@ print_r($listsimgs);
      $this->db->update('surogat', $data);
     }
     public function donors(){
+      if($this->session->userdata('role')!=1){
+        $this->db->where('hide','0');
+      }
       return $this->db->get('donor')->result_array();
     }
     public function donor_single($id){
@@ -476,5 +479,21 @@ print_r($listsimgs);
     public function surogat_images($id){
       $this->db->where('surogat_id',$id);
       return $this->db->get('surogat_images')->result_array();
+    }
+    public function hidedonor($id){
+      
+      $data=array(
+        'hide'=> '1'
+      );
+      $this->db->where('id',$id);
+      $this->db->update('donor', $data);
+    }
+    public function showdonor($id){
+
+      $data=array(
+        'hide'=> '0'
+      );
+      $this->db->where('id',$id);
+      $this->db->update('donor', $data);
     }
 }

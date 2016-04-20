@@ -150,18 +150,19 @@ class Actions extends CI_Controller{
   public function update_donor($id){
      if(empty($id))redirect('manager/donors');
      $this->Manager_model->updateDonor($id);
-     redirect('manager/donors');
+     echo '{"status":1}';
   }
   public function update_surogat($id){
      if(empty($id))redirect('manager/surogats');
      $this->Manager_model->updateSurogat($id);
-     redirect('manager/surogats');
+      echo '{"status":1}';
   }
 
 // parolis shecvla
   public function changePass(){
     if ( $_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST) ){
     $this->load->library('form_validation');
+
       $this->form_validation->set_rules('oldpass', 'ძველი პაროლის', 'required|callback_old_pass',
         array(
           // 'callback_old_pass' => '%s მითითებული პაროლი არ ემთხვევა ძველს',
@@ -184,6 +185,7 @@ class Actions extends CI_Controller{
         $this->session->mark_as_flash('err_message');
         redirect('manager/changePass');
       }else{
+        $data['finduser'] = $this->Manager_model->find('personal', $this->session->userdata('id'));
         $this->Manager_model->updata_pass();
         $this->load->view('manager/header');
         $data['succ']='პაროლი წარმატებით დარედაქტირდა';
@@ -193,12 +195,70 @@ class Actions extends CI_Controller{
       }
     }
   }
+   public function change_donor_pas(){
+    if ( $_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST) ){
+    $this->load->library('form_validation');
+      $this->form_validation->set_rules('newPass', 'პაროლის', 'trim|min_length[2]|required',
+            array(
+              'required' => '%s ველის შევსება აუცილებელია'
+            )
+          );
+      $this->form_validation->set_rules('comfimPass', 'პაროლი', 'matches[newPass]|required',
+            array(
+              'matches' => '%s არ ემთხვევა მითითებულს',
+              'required' => '%s ველის შევსება აუცილებელია'
+            )
+          );
+        if ($this->form_validation->run() === FALSE) {
+        $_SESSION['err_message'] = $this->form_validation->error_array();
+        $this->session->mark_as_flash('err_message');
+        redirect('manager/change_donor_pas');
+      }else{
+        // $this->Manager_model->updata_pass();
+        $data['finduser'] = $this->Manager_model->find('personal', $this->session->userdata('id'));
+        $data['succ']='პაროლი წარმატებით დარედაქტირდა';
+        $data['username'] = $this->Manager_model->updata_pass_for_donors();
+        $this->load->view('manager/header', $data);
+        $this->load->view('manager/changePass');
+        $this->load->view('manager/footer');
+      }
+    }
+  }
+   public function change_surogat_pas(){
+    if ( $_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST) ){
+    $this->load->library('form_validation');
+      $this->form_validation->set_rules('newPass', 'პაროლის', 'trim|min_length[2]|required',
+            array(
+              'required' => '%s ველის შევსება აუცილებელია'
+            )
+          );
+      $this->form_validation->set_rules('comfimPass', 'პაროლი', 'matches[newPass]|required',
+            array(
+              'matches' => '%s არ ემთხვევა მითითებულს',
+              'required' => '%s ველის შევსება აუცილებელია'
+            )
+          );
+        if ($this->form_validation->run() === FALSE) {
+        $_SESSION['err_message'] = $this->form_validation->error_array();
+        $this->session->mark_as_flash('err_message');
+        redirect('manager/change_surogat_pas');
+      }else{
+        // $this->Manager_model->updata_pass
+        $data['finduser'] = $this->Manager_model->find('personal', $this->session->userdata('id'));
+        $data['succ']='პაროლი წარმატებით დარედაქტირდა';
+        $data['username'] = $this->Manager_model->updata_pass_for_surogats();
+        $this->load->view('manager/header', $data);
+        $this->load->view('manager/changePass');
+        $this->load->view('manager/footer');
+      }
+    }
+  }
  public function old_pass($oldpass){
    $this->db->where('id', $this->session->userdata('id'));
    $this->db->where('password', sha1($oldpass));
    $row=$this->db->get('personal')->row_array();
    if($row)return TRUE;
-    $this->form_validation->set_message('old_pass', 'მითითებული პაროლი არ ემთხვევა ძველს');
+    $this->form_validation->set_message('oldpass', 'მითითებული პაროლი არ ემთხვევა ძველს');
    return FALSE;
   } 
 // parolis shecvla

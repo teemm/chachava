@@ -52,11 +52,11 @@ function addnew(){
     $(".alertDeleteCompany").slideToggle("slow");  
 }
 function addok(){
-    window.location.href = document.location.origin+'/';
+    window.location.href = document.location.origin+'/calendar/';
 }
 //deleteobject
 function deleteobject(id,object){
-  $.post("http://bookchachava.ge/Actions/delete_obj/"+id+"/"+object,{},function(e){
+  $.post("http://localhost/calendar/Actions/delete_obj/"+id+"/"+object,{},function(e){
     if(e){
       closeAlert();
       $(".supc_left_item[data-numb='"+id+"']").slideUp("slow",function(){
@@ -86,7 +86,7 @@ function closeAlert(){
 //ფილიალის წაშლა
 // delete person
 function deleteobPerson(id,object){
-  $.post("http://bookchachava.ge/actions/delete_obj/"+id+"/"+object,{},function(e){
+  $.post("http://localhost/calendar/actions/delete_obj/"+id+"/"+object,{},function(e){
     if(e){
       closePerson();
       $(".supc_list[data-numb='"+id+"']").slideUp("slow",function(){
@@ -97,7 +97,7 @@ function deleteobPerson(id,object){
   });
 }
 function deletedonor(id,object){
-  $.post("http://bookchachava.ge/actions/delete_obj/"+id+"/"+object,{},function(e){
+  $.post("http://localhost/calendar/actions/delete_obj/"+id+"/"+object,{},function(e){
     if(e){
       closedonor();
       $(".supc_list[data-numb='"+id+"']").slideUp("slow",function(){
@@ -117,7 +117,7 @@ function closedonor(){
   $( ".back_cover" ).fadeTo("slow",0);
   $(".alertDeletePerson").slideUp("slow",function(){
     $(".alertDeletePerson,.back_cover").remove(); 
-     window.location.href="http://bookchachava.ge/manager/donors/";
+     window.location.href="http://localhost/calendar/manager/donors/";
   });
 }
 //პერსონალის წაშლა
@@ -206,7 +206,7 @@ $(".surogat_delete").on("click",function(){
     $(".alertDeletePerson").slideToggle("slow");
 });  
 function surogatdelete(id,object){
-  $.post("http://bookchachava.ge/actions/delete_obj/"+id+"/"+object,{},function(e){
+  $.post("http://localhost/calendar/actions/delete_obj/"+id+"/"+object,{},function(e){
     if(e){
       closesurogat();
       $(".supc_list[data-numb='"+id+"']").slideUp("slow",function(){
@@ -220,7 +220,7 @@ function closesurogat(){
   $( ".back_cover" ).fadeTo("slow",0);
   $(".alertDeletePerson").slideUp("slow",function(){
     $(".alertDeletePerson,.back_cover").remove(); 
-     window.location.href="http://bookchachava.ge/manager/surogats/";
+     window.location.href="http://localhost/calendar/manager/surogats/";
   });
 }
 
@@ -259,7 +259,7 @@ $('body').on('change', '#file', function(){
                     reader.readAsDataURL(this.files[i]);
 
     			    $(this).hide();
-                    $("#abcd"+ abc).append($("<img/>", {id: 'img',id:abc,src: 'http://bookchachava.ge/assets/images/x.png', alt: 'delete'}).click(function() {
+                    $("#abcd"+ abc).append($("<img/>", {id: 'img',id:abc,src: 'http://localhost/calendar/assets/images/x.png', alt: 'delete'}).click(function() {
                         $(this).parents('.imgblock').remove();
                         idd=$(this).attr('id');
                         delfile+='-'+idd;

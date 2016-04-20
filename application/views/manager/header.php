@@ -42,7 +42,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <a class="mdl-navigation__link" href="<?php echo base_url(); ?>">&#4315;&#4311;&#4304;&#4309;&#4304;&#4320;&#4312;</a>
                 <?php if($this->session->userdata('role')==1):?>
                 <a class="mdl-navigation__link" href="<?php echo base_url('office/1/') ?>">&#4313;&#4304;&#4314;&#4308;&#4316;&#4307;&#4304;&#4320;&#4312;</a>
-                <a class="mdl-navigation__link" href="<?php echo base_url('manager/donors/'); ?>">&#4307;&#4317;&#4316;&#4317;&#4320;&#4308;&#4305;&#4312;</a>
+                <a class="mdl-navigation__link" href="<?php echo base_url('manager/change_donor_pas/'); ?>">დონორის პაროლის შეცვლა</a>
+                 <a class="mdl-navigation__link" href="<?php echo base_url('manager/change_surogat_pas/'); ?>">სუროგატის პაროლის შეცვლა</a>
+                  <a class="mdl-navigation__link" href="<?php echo base_url('manager/donors/'); ?>">&#4307;&#4317;&#4316;&#4317;&#4320;&#4308;&#4305;&#4312;</a>
                 <a class="mdl-navigation__link" href="<?php echo base_url('manager/surogats/'); ?>">&#4321;&#4323;&#4320;&#4317;&#4306;&#4304;&#4322;&#4308;&#4305;&#4312;</a>
                 <?php if($this->session->userdata('role')==1): ?><a class="mdl-navigation__link" href="<?php echo base_url('manager/add_donors/'); ?>">&#4307;&#4317;&#4316;&#4317;&#4320;&#4308;&#4305;&#4312;&#4321; &#4307;&#4304;&#4315;&#4304;&#4322;&#4308;&#4305;&#4304;</a><?php endif; ?>
                 <?php if($this->session->userdata('role')==1): ?><a class="mdl-navigation__link" href="<?php echo base_url('manager/add_surogats/'); ?>">&#4321;&#4323;&#4320;&#4317;&#4306;&#4304;&#4322;&#4308;&#4305;&#4312;&#4321; &#4307;&#4304;&#4315;&#4304;&#4322;&#4308;&#4305;&#4304;</a><?php endif; ?>

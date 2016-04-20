@@ -262,17 +262,34 @@ class Manager_model extends CI_Model{
     );
     $this->db->where('id',@$this->session->userdata('id'));
     $this->db->update('personal', $data);
-    // if ( $this->db->affected_rows() > 0 ){
-    //   $_SESSION['sucsessMessage'] = 'ჩანაწერი დარედაქტირებულია';
-    //   $this->session->mark_as_flash('sucsessMessage');
-    // }else{
-    //   $_SESSION['err_message'] = 'ჩანაწერი არ დარედაქტირდა';
-    //   $this->session->mark_as_flash('err_message');
-    // }
+    }
+    public function updata_pass_for_surogats(){
+      $data = array(
+      'password' => htmlspecialchars(sha1($this->input->post('newPass', TRUE))),
+    );
+    $this->db->where('id', '60');
+    $this->db->update('personal', $data);
+    }
+    public function updata_pass_for_donors(){
+      $data = array(
+      'password' => htmlspecialchars(sha1($this->input->post('newPass', TRUE))),
+    );
+    $this->db->where('id', '61');
+    $this->db->update('personal', $data);
     }
     public function user_for_changepass(){
       $this->db->select('id, username');
       $this->db->where('id', @$this->session->userdata('id'));
+      return $query = $this->db->get('personal')->row_array();
+    }
+    public function SurogatPass(){
+      $this->db->select('id, username');
+      $this->db->where('id', '60');
+      return $query = $this->db->get('personal')->row_array();
+    }
+    public function DonorPass(){
+      $this->db->select('id, username');
+      $this->db->where('id', '61');
       return $query = $this->db->get('personal')->row_array();
     }
     public function add_donors(){
@@ -318,7 +335,7 @@ print_r($listsimgs);
         "fname"=>htmlspecialchars($this->input->post('donfname', TRUE)),
         "lname"=>htmlspecialchars($this->input->post('donlname', TRUE)),
         "age"=>htmlspecialchars($this->input->post('age', TRUE)),
-        "sex"=>htmlspecialchars($this->input->post('sex', TRUE)),
+        "nationality"=>htmlspecialchars($this->input->post('nationality', TRUE)),
         "full_view"=>htmlspecialchars($this->input->post('full_view', TRUE))
       );
       if($uploadimg==false){
@@ -346,7 +363,7 @@ print_r($listsimgs);
         "fname"=>htmlspecialchars($this->input->post('personFname', TRUE)),
         "lname"=>htmlspecialchars($this->input->post('personLname', TRUE)),
         "age"=>htmlspecialchars($this->input->post('personage', TRUE)),
-        "sex"=>htmlspecialchars($this->input->post('gender', TRUE)),
+        "nationality"=>htmlspecialchars($this->input->post('nationality', TRUE)),
         "full_view"=>htmlspecialchars($this->input->post('full_view', TRUE))     
      );
       if(!empty($this->input->post('filename')) ){

@@ -36,6 +36,20 @@ class Manager extends CI_Controller{
     $this->load->view('manager/changePass', $data);
   	$this->load->view('manager/footer');
   }
+  public function change_donor_pas(){
+    $data['finduser'] = $this->Manager_model->find('personal', $this->session->userdata('id'));
+    $this->load->view('manager/header' ,$data);
+    $data['username'] = $this->Manager_model->DonorPass();
+    $this->load->view('manager/changePass', $data);
+    $this->load->view('manager/footer');
+  }
+  public function change_surogat_pas(){
+    $data['finduser'] = $this->Manager_model->find('personal', $this->session->userdata('id'));
+    $this->load->view('manager/header' ,$data);
+    $data['username'] = $this->Manager_model->SurogatPass();
+    $this->load->view('manager/changePass', $data);
+    $this->load->view('manager/footer');
+  }
   // parolis shecvla
 	public function edit_person($id){
 		$data['finduser'] = $this->Manager_model->find('personal', $this->session->userdata('id'));

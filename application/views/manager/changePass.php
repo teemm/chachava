@@ -16,15 +16,17 @@
             <section class="changeform allcenter">
           
                <h2>პაროლის შეცვლა</h2>
-
-               <form class="" action="<?php echo base_url('Actions/changePass'); ?>" method="post">
+<?php $action=$this->uri->segment(2); ?>
+               <form class="" action="<?php echo base_url('Actions/'.$action); ?>" method="post">
                   <div class="changepassmain">
                    <p style="color:green; font-size:25px;"><?php if(!empty($succ))echo $succ; ?></p>
                   <label>ნიკი</label>
                    <p><input class="changepass" type="text" disabled value="<?php echo $username['username']; ?>"></p>
+                   <?php if ($action=='changePass') : ?>
                    <label>ძველი პაროლი</label>
                    <p><input class="changepass" name="oldpass" type="text" placeholder=""></p>
                    <?php if (isset($err['oldpass'])) echo '<div class="error">'.$err['oldpass'].'</div>'; ?>
+                    <?php endif ; ?>
                    <label>ახალი პაროლი</label>
                    <p><input class="changepass" type="password" name="newPass" placeholder=""></p>
                    <?php if (isset($err['newPass'])) echo '<div class="error">'.$err['newPass'].'</div>'; ?>

@@ -50,8 +50,8 @@ function init(id) {
 	else change+="&";
 	MarkToday();
 	scheduler.init('scheduler_here',new Date(Date.now()),"week");
-	scheduler.load("http://bookchachava.ge/codebase/events.php"+change+"?uid="+scheduler.uid());
-	var dp = new dataProcessor("http://bookchachava.ge/assets/codebase/events.php");
+	scheduler.load("http://localhost/calendar/codebase/events.php"+change+"?uid="+scheduler.uid());
+	var dp = new dataProcessor("http://localhost/calendar/assets/codebase/events.php");
 	dp.init(scheduler);	
 	scheduler.templates.event_header=function(start,end,event){
 	     return event.fname;

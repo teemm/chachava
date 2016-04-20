@@ -1,0 +1,80 @@
+@font-face {
+    font-family: 'bpg_nino_mtavruli_bold';
+    src: url('../fonts/bpg_nino_mtavruli_bold.eot');
+    src: url('../fonts/bpg_nino_mtavruli_bold.eot') format('embedded-opentype'),
+         url('../fonts/bpg_nino_mtavruli_bold.woff2') format('woff2'),
+         url('../fonts/bpg_nino_mtavruli_bold.woff') format('woff'),
+         url('../fonts/bpg_nino_mtavruli_bold.ttf') format('truetype'),
+         url('../fonts/bpg_nino_mtavruli_bold.svg#bpg_nino_mtavruli_bold') format('svg');
+}
+@font-face {
+    font-family: 'MYRIADPROREGULAR';
+    src: url('../fonts/MYRIADPROREGULAR/MYRIADPROREGULAR.eot');
+    src: url('../fonts/MYRIADPROREGULAR/MYRIADPROREGULAR.eot') format('embedded-opentype'),
+         url('../fonts/MYRIADPROREGULAR/MYRIADPROREGULAR.woff2') format('woff2'),
+         url('../fonts/MYRIADPROREGULAR/MYRIADPROREGULAR.woff') format('woff'),
+         url('../fonts/MYRIADPROREGULAR/MYRIADPROREGULAR.ttf') format('truetype'),
+         url('../fonts/MYRIADPROREGULAR/MYRIADPROREGULAR.svg#MYRIADPROREGULAR') format('svg');
+}
+
+#scheduler_here{
+	margin: 130px 0 0 0;
+}
+.headerDate{
+	overflow: hidden;
+	width: 500px;
+	text-align: center;
+	position: relative !important;
+	margin: 0 auto;
+}
+.headerDate .arrows,
+.headerDate .dhx_cal_date{
+	display: inline-block;
+	vertical-align: middle;
+}
+.headerDate .dhx_cal_date{
+	width: 312px;
+	font:21px "bpg_nino_mtavruli_bold",arial,sans-serif !important;
+	background: #00B48C;
+	color: #fff;
+	padding: 7px 0;
+	text-align: center;
+}
+.headerDate  .arrows{
+	padding: 0 18px
+}
+.headerDate .arrow-left{
+	width: 0; 
+	height: 0; 
+	border-top: 9px solid transparent;
+	border-bottom: 9px solid transparent; 
+	border-right:9px solid #82888A; 
+}
+.headerDate .arrow-right{
+	width: 0; 
+	height: 0; 
+	border-top: 9px solid transparent;
+	border-bottom: 9px solid transparent;
+	border-left: 9px solid #82888A;	
+}
+.dhx_cal_header{
+	height: 46px !important;
+	top: 36px !important;
+}
+.dhx_cal_header .dhx_scale_bar{
+	font:19px "bpg_nino_mtavruli_bold",arial,sans-serif !important;
+	color: #82888A;
+	padding: 7px 0;
+	height: 21px !important;
+}
+.dhx_cal_navline{
+	top: -78px !important;
+	position: relative;
+}
+.dhx_cal_data .bg_curent{
+	background: rgba(117,68,163,0.2);
+	width: 250px;
+}
+.dhx_cal_event{
+	font:12px "MYRIADPROREGULAR",arial,sans-serif !important;
+}

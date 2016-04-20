@@ -1,0 +1,121 @@
+[33mcommit 76155d268ca258d4443b5b231c72186f681c23f9[m
+Author: oalkhanishvili <oto@geolab.edu.ge>
+Date:   Wed Dec 16 13:50:35 2015 +0400
+
+    failebis agdgena
+
+[1mdiff --git a/.htaccess b/.htaccess[m
+[1mindex 3a17ae8..e90dff9 100644[m
+[1m--- a/.htaccess[m
+[1m+++ b/.htaccess[m
+[36m@@ -1,21 +1,4 @@[m
+[31m-<IfModule mod_rewrite.c>[m
+[31m-    RewriteEngine On[m
+[31m-    RewriteBase /[m
+[31m-    RewriteCond %{REQUEST_URI} ^system.*[m
+[31m-    RewriteRule ^(.*)$ /index.php?/$1 [L][m
+[31m-[m
+[31m-    #Checks to see if the user is attempting to access a valid file,[m
+[31m-    #such as an image or css document, if this isn't true it sends the[m
+[31m-    #request to index.php[m
+[31m-    RewriteCond %{REQUEST_FILENAME} !-f[m
+[31m-    RewriteCond %{REQUEST_FILENAME} !-d[m
+[31m-    RewriteRule ^(.*)$ /index.php?/$1 [L][m
+[31m-</IfModule>[m
+[31m-[m
+[31m-<IfModule !mod_rewrite.c>[m
+[31m-    # If we don't have mod_rewrite installed, all 404's[m
+[31m-    # can be sent to index.php, and everything works as normal.[m
+[31m-    # Submitted by: ElliotHaughin[m
+[31m-[m
+[31m-    ErrorDocument 404 /index.php[m
+[31m-</IfModule>[m
+[32m+[m[32mRewriteEngine On[m
+[32m+[m[32mRewriteCond %{REQUEST_FILENAME} !-f[m
+[32m+[m[32mRewriteCond %{REQUEST_FILENAME} !-d[m
+[32m+[m[32mRewriteRule ^(.*)$ index.php/$1 [L][m
+[1mdiff --git a/application/config/config.php b/application/config/config.php[m
+[1mindex a88c363..802fad2 100644[m
+[1m--- a/application/config/config.php[m
+[1m+++ b/application/config/config.php[m
+[36m@@ -17,7 +17,7 @@[m [mdefined('BASEPATH') OR exit('No direct script access allowed');[m
+ | environments.[m
+ |[m
+ */[m
+[31m-$config['base_url'] = 'http://geolab-booking-platform.herokuapp.com/';[m
+[32m+[m[32m$config['base_url'] = 'http://localhost/Geocell/';[m
+ [m
+ /*[m
+ |--------------------------------------------------------------------------[m
+[1mdiff --git a/application/controllers/Actions.php b/application/controllers/Actions.php[m
+[1mindex 7df913e..e49995a 100644[m
+[1m--- a/application/controllers/Actions.php[m
+[1m+++ b/application/controllers/Actions.php[m
+[36m@@ -11,7 +11,7 @@[m [mclass Actions extends CI_Controller{[m
+       if ( $this->Manager_model->login() != false ){[m
+         redirect('manager/superManager');[m
+       }else{[m
+[31m-        die('');[m
+[32m+[m[32m        die('asfa');[m
+       }[m
+     }[m
+   }[m
+[1mdiff --git a/application/controllers/Manager.php b/application/controllers/Manager.php[m
+[1mindex 0057811..833ca0f 100644[m
+[1m--- a/application/controllers/Manager.php[m
+[1m+++ b/application/controllers/Manager.php[m
+[36m@@ -10,7 +10,7 @@[m [mclass Manager extends CI_Controller{[m
+ 		}[m
+ 	}[m
+ 	public function index(){[m
+[31m-		redirect('manager/login');[m
+[32m+[m		[32mredirect('Manager/login');[m
+ 	}[m
+   public function person(){[m
+ 		if ( $this->session->userdata('role') != 1 ){[m
+[1mdiff --git a/application/views/manager/footer.php b/application/views/manager/footer.php[m
+[1mindex c7b516a..aa7d26f 100644[m
+[1m--- a/application/views/manager/footer.php[m
+[1m+++ b/application/views/manager/footer.php[m
+[36m@@ -2,7 +2,11 @@[m
+ defined('BASEPATH') OR exit('No direct script access allowed');[m
+ ?><!DOCTYPE html>[m
+ 	<script src="<?php echo base_url('js/app.js'); ?>"></script>[m
+[31m-[m
+[32m+[m[32m<script type="text/javascript">[m
+[32m+[m[32m(function(){[m
+[32m+[m	[32malert('error');[m
+[32m+[m	[32m})();[m
+[32m+[m[32m</script>[m
+ 		</div>[m
+    </body>[m
+ </html>[m
+[1mdiff --git a/assets/js/app.js b/assets/js/app.js[m
+[1mindex 1aea580..a6cdc4e 100644[m
+[1m--- a/assets/js/app.js[m
+[1m+++ b/assets/js/app.js[m
+[36m@@ -2,7 +2,15 @@[m
+   'user strict';[m
+   function conroller(){[m
+     var self = this instanceof Controller ? this:Object.create(Controller.prototype);[m
+[31m-  }[m
+[32m+[m[32m    self.cont = self.constants();[m
+[32m+[m[32m  };[m
+[32m+[m[32m  Controller.prototype.init = function(){[m
+[32m+[m[32m    var instace = this;[m
+[32m+[m[32m  };[m
+[32m+[m[32m  Controller.prototype.constants = function () {[m
+[32m+[m[32m    // body...[m
+[32m+[m[32m  };[m
+[32m+[m[32m  new Controller();[m
+ })();[m
+ [m
+ /**[m
+[36m@@ -14,7 +22,6 @@[m
+         var self = this instanceof Controller ? this : Object.create(Controller.prototype);[m
+         self.tools = self.getTools();[m
+         self.constants = self.getConstants();[m
+[31m-[m
+     }[m
+     Controller.prototype.init = function()[m
+     {[m

@@ -1,0 +1,8 @@
+[
+	{ start_date: "2015-12-02 09:00", end_date: "2015-12-02 12:00", text:"dsadasdasd" },
+	{ start_date: "2015-04-20 10:00", end_date: "2015-04-21 16:00", text:"Math exam" },
+	{ start_date: "2015-04-21 10:00", end_date: "2015-04-21 14:00", text:"Science lesson" },
+	{ start_date: "2015-04-23 16:00", end_date: "2015-04-23 17:00", text:"English lesson"},
+	{ start_date: "2015-04-24 09:00", end_date: "2015-04-24 17:00", text:"Usual event" },
+	{ start_date: "2015-04-24 09:00", end_date: "2015-04-24 17:00", text:"dsadd add  asddasdsd dsadsad"}
+]

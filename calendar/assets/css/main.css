@@ -1,0 +1,175 @@
+ul{
+	list-style: none;
+}
+.transition{
+	-webkit-transition: all 0.5s ease !important;
+	-moz-transition: all 0.5s ease !important;
+	-ms-transition: all 0.5s ease !important;
+	-o-transition: all 0.5s ease !important;
+	transition: all 0.5s ease !important;	
+}
+#scheduler_here{
+	margin: 130px 0 0 0;
+}
+.headerDate{
+	overflow: hidden;
+	width: 500px;
+	text-align: center;
+	position: relative !important;
+	margin: 0 auto;
+}
+.headerDate .arrows,
+.headerDate .dhx_cal_date{
+	display: inline-block;
+	vertical-align: middle;
+}
+.headerDate .dhx_cal_date{
+	width: 312px;
+	font:21px "bpg_nino_mtavruli_bold",arial,sans-serif !important;
+	background: #00B48C;
+	color: #fff;
+	padding: 7px 0;
+	text-align: center;
+}
+.headerDate  .arrows{
+	padding: 0 18px
+}
+.headerDate .arrow-left{
+	width: 0; 
+	height: 0; 
+	border-top: 9px solid transparent;
+	border-bottom: 9px solid transparent; 
+	border-right:9px solid #82888A; 
+}
+.headerDate .arrow-right{
+	width: 0; 
+	height: 0; 
+	border-top: 9px solid transparent;
+	border-bottom: 9px solid transparent;
+	border-left: 9px solid #82888A;	
+}
+.dhx_cal_header{
+	height: 46px !important;
+	top: 36px !important;
+}
+.dhx_cal_header .dhx_scale_bar{
+	font:19px "bpg_nino_mtavruli_bold",arial,sans-serif !important;
+	color: #82888A;
+	padding: 7px 0;
+	height: 21px !important;
+}
+.dhx_cal_navline{
+	top: -65px !important;
+	position: relative;
+}
+.dhx_cal_data .bg_curent{
+	background: rgba(117,68,163,0.2);
+	width: 250px;
+}
+.dhx_scale_holder_now .dhx_cal_event{
+	padding: 3px;
+	box-sizing: border-box;
+}
+.dhx_scale_holder_now .dhx_body{
+	padding: 2px;
+}
+.dhx_cal_light_wide{
+	width: 400px;
+	height: 215px !important;
+	border: 1px solid #CCCCCC;
+}
+.dhx_cal_larea{
+	width: 390px !important;
+}
+.dhx_wrap_section{
+	height:30px;
+	padding: 0 0 0 30px !important; 
+}
+.dhx_wrap_section textarea{
+	height:22px;
+}
+.dhx_section_time input.dhx_readonly{
+	width: 62px;
+}
+.dhx_cal_ltitle{
+	padding: 15px 0 0 30px;
+}
+.dhx_cal_larea .dhx_wrap_section:last-child .dhx_cal_lsection{
+	width: 80px;
+}
+.dhx_cal_lsection,.dhx_cal_ltitle{
+	font: 14px "bpg_nino_mtavruli_bold",arial,sans-serif !important;
+}
+.dhx_title .SecondTitle{
+	color: #1155CF;
+}
+.dhx_title .SecondTitle{
+	padding: 0 0 0 5px;
+}
+.dhx_btn_set{
+	font:14px "bpg_arial",arial,sans-serif;
+}
+.dhx_save_btn_set{
+	background: #7544A3;
+}
+.dhx_delete_btn_set{
+	background: #ff2828;
+}
+.personalPage{
+	margin: 130px 0px 0px;
+}
+.personalPage .personalImage{
+	border-radius: 50%;
+	width: 80px;
+	height: 80px;
+	overflow: hidden;
+	position: relative;
+}
+.personalPage .personalImage img{
+	text-align: center;
+	position: absolute;
+	right: -25%;
+}
+.personalPage .personalLists{
+	padding: 0;
+	width: 318px;
+	background: #fff;
+	margin: 0 0 32px 17.5px;
+	overflow: auto;
+	height: -webkit-calc(100% - 130px);
+	height: -moz-calc(100% - 130px);
+	height: calc(100% - 130px);
+}
+.personalPage .personalLists .ListBlcok p{
+	display: inline-block;
+	vertical-align: middle;
+}
+.personalPage .personalLists .ListBlcok{
+	margin: 0 0 32px 0;
+	font-size: 0;
+	cursor: pointer;
+}
+.personalPage .personalLists .personalImage{
+	margin: 5px 0 5px 30px;
+}
+.personalPage .personalLists .personalName{
+	font:24px "bpg_arial",arial,sans-serif;
+	padding: 0 0 0 45px;
+	color: #565A5C;
+}
+.personalPage .activePersonal{
+	background: #7544A3;
+}
+.personalPage .activePersonal .personalName{
+	color: #fff;
+}
+.dhx_mini_calendar{
+	background: #fff;
+}
+.today{
+	background: #7544A3;
+	color: #fff !important;
+}
+.dhx_cal_data{
+	height: calc(100% - 180px) !important;
+}

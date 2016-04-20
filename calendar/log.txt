@@ -1,0 +1,66 @@
+
+
+====================================
+Log started, 21/12/2015 03:12:58
+====================================
+
+Only variables should be assigned by reference at D:\xampp\htdocs\Geocell\calendar\codebase\base_connector.php line 61
+
+Only variables should be assigned by reference at D:\xampp\htdocs\Geocell\calendar\codebase\base_connector.php line 84
+
+SELECT event_id,start_date,end_date,details,fname,procedur,personal FROM events WHERE personal=5
+
+mysqli_connect() expects parameter 2 to be string, object given at D:\xampp\htdocs\Geocell\calendar\codebase\db_common.php line 801
+
+mysql_fetch_assoc() expects parameter 1 to be resource, null given at D:\xampp\htdocs\Geocell\calendar\codebase\db_common.php line 807
+
+Done in 0.036298036575317s
+
+
+
+====================================
+Log started, 21/12/2015 03:12:33
+====================================
+
+Only variables should be assigned by reference at D:\xampp\htdocs\Geocell\calendar\codebase\base_connector.php line 61
+
+Only variables should be assigned by reference at D:\xampp\htdocs\Geocell\calendar\codebase\base_connector.php line 84
+
+SELECT event_id,start_date,end_date,details,fname,procedur,personal FROM events WHERE personal=5
+
+
+
+====================================
+Log started, 21/12/2015 03:12:56
+====================================
+
+Only variables should be assigned by reference at D:\xampp\htdocs\Geocell\calendar\codebase\base_connector.php line 61
+
+Only variables should be assigned by reference at D:\xampp\htdocs\Geocell\calendar\codebase\base_connector.php line 84
+
+SELECT event_id,start_date,end_date,details,fname,procedur,personal FROM events WHERE personal=5
+
+
+
+====================================
+Log started, 22/12/2015 11:12:14
+====================================
+
+Only variables should be assigned by reference at D:\xampp\htdocs\Geocell\calendar\codebase\base_connector.php line 61
+
+Only variables should be assigned by reference at D:\xampp\htdocs\Geocell\calendar\codebase\base_connector.php line 84
+
+SELECT event_id,start_date,end_date,details,fname,procedur,personal FROM events
+
+
+
+====================================
+Log started, 22/12/2015 11:12:40
+====================================
+
+Only variables should be assigned by reference at D:\xampp\htdocs\Geocell\calendar\codebase\base_connector.php line 61
+
+Only variables should be assigned by reference at D:\xampp\htdocs\Geocell\calendar\codebase\base_connector.php line 84
+
+SELECT event_id,start_date,end_date,details,fname,procedur,personal FROM events
+

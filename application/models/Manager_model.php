@@ -325,7 +325,6 @@ $listsimgs[]=$file_name;
             echo $j. ').<span id="error">***Invalid file Size or Type***</span><br/><br/>';
         }
     }
-print_r($listsimgs);
 
 //upload image end
 
@@ -342,8 +341,11 @@ print_r($listsimgs);
         $data['avatar'] = 'photo.jpg';
       }
       else{
+        $countImg=count($listsimgs);
         $data['avatar'] = $listsimgs[0];
       }
+      print_r( $listsimgs);
+      
       $this->db->insert('donor', $data);
       if($uploadimg!=false){
          $this->db->select('id');
@@ -481,7 +483,6 @@ print_r($listsimgs);
       return $this->db->get('surogat_images')->result_array();
     }
     public function hidedonor($id){
-      
       $data=array(
         'hide'=> '1'
       );
@@ -489,7 +490,6 @@ print_r($listsimgs);
       $this->db->update('donor', $data);
     }
     public function showdonor($id){
-
       $data=array(
         'hide'=> '0'
       );
